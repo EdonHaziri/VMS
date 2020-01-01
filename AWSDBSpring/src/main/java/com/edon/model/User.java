@@ -9,6 +9,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name="aws")
 public class User {
+	
 	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int userId;
 	private String userName;
