@@ -8,6 +8,7 @@ import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
+@Table(name = "vehicle")
 public class Vehicle implements HasLocationId, Deletable {
     private Integer id;
     private String manufacturer;

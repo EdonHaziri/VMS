@@ -2,7 +2,11 @@ package com.VMS.model;
 
 import javax.persistence.Basic;
 import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 
+@Entity
+@Table(name = "employee")
 public class Employee {
 
 		private String firstName;
