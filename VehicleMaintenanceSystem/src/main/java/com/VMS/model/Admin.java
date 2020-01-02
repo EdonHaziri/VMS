@@ -1,6 +1,5 @@
 package com.VMS.model;
 
-
 public class Admin {
 	private String firstName;
 	private String lastName;
