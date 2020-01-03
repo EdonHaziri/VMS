@@ -35,6 +35,72 @@ public class Customer {
 	@Column(name = "confirmPassword")
 	private String confirmPassword;
 	
+	
+	
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public String getConfirmPassword() {
+		return confirmPassword;
+	}
+
+	public void setConfirmPassword(String confirmPassword) {
+		this.confirmPassword = confirmPassword;
+	}
+
+	public Set<Role> getRoles() {
+		return roles;
+	}
+
+	public void setRoles(Set<Role> roles) {
+		this.roles = roles;
+	}
+
+	public Set<Vehicle> getConsignments() {
+		return consignments;
+	}
+
+	public void setConsignments(Set<Vehicle> consignments) {
+		this.consignments = consignments;
+	}
+
+	public Set<Vehicle> getAssignedConsignments() {
+		return assignedConsignments;
+	}
+
+	public void setAssignedConsignments(Set<Vehicle> assignedConsignments) {
+		this.assignedConsignments = assignedConsignments;
+	}
+
 	@ManyToMany(targetEntity=Role.class, cascade=CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinTable(name="Customer_Role", 
 		joinColumns= {@JoinColumn(name="email")}, 
@@ -85,6 +151,21 @@ public class Customer {
 		this.password = password;
 		this.confirmPassword = confirmPassword;
 	}
-	
+
+	public Set<Vehicle> getVehicles() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public boolean isReceived() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public void addVehicle(Vehicle vehicle) {
+		// TODO Auto-generated method stub
+		
+	}
+
 	
 }

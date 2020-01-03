@@ -1,6 +1,5 @@
 package com.VMS.model;
 
-import com.VMS.interfaces.Deletable;
 import com.VMS.interfaces.*;
 
 
@@ -170,5 +169,39 @@ public class Vehicle implements HasLocationId, Deletable {
         this.locationId = locationId;
         this.engineNumber = engineNumber;
     }
+
+	public Vehicle(Customer foundCustomer, Vehicle foundVehicle) {
+		// TODO Auto-generated constructor stub
+	}
+
+	public Customer getCustomer() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public boolean isReceived() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public void setReceived(boolean b) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setCustomer(Customer customer) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setOwnerName(String string) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public Vehicle getVehicle() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 }
