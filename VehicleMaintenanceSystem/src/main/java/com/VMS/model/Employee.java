@@ -1,8 +1,16 @@
 package com.VMS.model;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -71,4 +79,10 @@ public class Employee {
 			EmployeeType = employeeType;
 		}
 	    
+		@ManyToMany(targetEntity=Role.class, cascade=CascadeType.ALL, fetch = FetchType.EAGER)
+		@JoinTable(name="Employee_Role", 
+			joinColumns= {@JoinColumn(name="email")}, 
+			inverseJoinColumns={@JoinColumn(name="role")}
+		)
+		private Set<Role> roles = new HashSet<>();
 }

@@ -1,9 +1,8 @@
 package com.VMS.model;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -13,64 +12,79 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 
-
 @Entity
-@Table(name = "customer")
+@Table(name = "user")
 public class Customer {
-
-	    private String name;
-	    private String address;
-	    private String contactNumber;
-	    private String emailId;
-	    private String password;
-	    
-	    @Basic
-	    @Column(name = "name", nullable = true, length = 255)
-		public String getName() {
-			return name;
-		}
-		public void setName(String name) {
-			this.name = name;
-		}
+	
+	@Column(name = "firstName")
+	private String firstName;
+	
+	@Column(name = "lastName")
+	private String lastName;
+	
+	@Id
+	@Column(name = "email")
+	private String email;
+	
+	@Column(name = "password")
+	private String password;
+	
+	@Column(name = "confirmPassword")
+	private String confirmPassword;
+	
+	@ManyToMany(targetEntity=Role.class, cascade=CascadeType.ALL, fetch = FetchType.EAGER)
+	@JoinTable(name="Customer_Role", 
+		joinColumns= {@JoinColumn(name="email")}, 
+		inverseJoinColumns={@JoinColumn(name="role")}
+	)
+	private Set<Role> roles = new HashSet<>();
+	
+	// owned vehicles
+	@OneToMany(mappedBy = "customer", fetch = FetchType.EAGER, cascade=CascadeType.ALL, targetEntity=Vehicle.class)
+	private Set<Vehicle> consignments = new HashSet<>();
+	
+	// assigned vehicles
+	@OneToMany(mappedBy = "assignedEmployee", fetch = FetchType.EAGER, targetEntity=Vehicle.class)
+	private Set<Vehicle> assignedConsignments = new HashSet<>();
 		
-		@Basic
-	    @Column(name = "address", nullable = true, length = 255)
-		public String getAddress() {
-			return address;
-		}
-		public void setAddress(String address) {
-			this.address = address;
-		}
+	public void addRole(Role role) {
+		roles.add(role);
+	}
+	
+	public void removeRole(Role role) {
+		roles.remove(role);
+	}
+	
+	public void addConsignment(Vehicle vehicle) {
+		consignments.add(vehicle);
+	}
+	
+	public void removeConsignment(Vehicle vehicle) {
+		consignments.remove(vehicle);
+	}
+	
+	public void assignConsignment(Vehicle vehicle) {
+		assignedConsignments.add(vehicle);
+	}
+	
+	public void unassignConsignment(Vehicle vehicle) {
+		assignedConsignments.remove(vehicle);
+	}
+	
+	public Customer() {
 		
-		@Basic
-	    @Column(name = "contactNumber", nullable = true, length = 255)
-		public String getContact() {
-			return contactNumber;
-		}
-		public void setContact(String contactNumber) {
-			this.contactNumber = contactNumber;
-		}
-		
-		@Basic
-	    @Column(name = "emailId", nullable = true, length = 255)
-		public String getEmailId() {
-			return emailId;
-		}
-		public void setEmailId(String emailId) {
-			this.emailId = emailId;
-		}
-		
-		@Basic
-	    @Column(name = "password", nullable = true, length = 255)
-		public String getPassword() {
-			return password;
-		}
-		public void setPassword(String password) {
-			this.password = password;
-		}
-	    
+	}
+	
+	public Customer(String firstName, String lastName, String email, String password, String confirmPassword) {
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.email = email;
+		this.password = password;
+		this.confirmPassword = confirmPassword;
+	}
+	
+	
 }
