@@ -24,7 +24,7 @@ public class Vehicle implements HasLocationId, Deletable {
 
 	@Id
     @Column(name = "id", nullable = false)
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     public Integer getId() {
         return id;
     }
@@ -202,6 +202,16 @@ public class Vehicle implements HasLocationId, Deletable {
 	public Vehicle getVehicle() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	public void remove(Vehicle vehicle) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void add(Vehicle vehicle) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

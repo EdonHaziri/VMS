@@ -85,20 +85,20 @@ public class Customer {
 		this.roles = roles;
 	}
 
-	public Set<Vehicle> getConsignments() {
-		return consignments;
+	public Set<Vehicle> getVehicles() {
+		return vehicles;
 	}
 
-	public void setConsignments(Set<Vehicle> consignments) {
-		this.consignments = consignments;
+	public void setVehicles(Set<Vehicle> vehicles) {
+		this.vehicles = vehicles;
 	}
 
-	public Set<Vehicle> getAssignedConsignments() {
-		return assignedConsignments;
+	public Set<Vehicle> getAssignedVehicles() {
+		return assignedVehicles;
 	}
 
-	public void setAssignedConsignments(Set<Vehicle> assignedConsignments) {
-		this.assignedConsignments = assignedConsignments;
+	public void setAssignedConsignments(Set<Vehicle> assignedVehicles) {
+		this.assignedVehicles = assignedVehicles;
 	}
 
 	@ManyToMany(targetEntity=Role.class, cascade=CascadeType.ALL, fetch = FetchType.EAGER)
@@ -110,11 +110,11 @@ public class Customer {
 	
 	// owned vehicles
 	@OneToMany(mappedBy = "customer", fetch = FetchType.EAGER, cascade=CascadeType.ALL, targetEntity=Vehicle.class)
-	private Set<Vehicle> consignments = new HashSet<>();
+	private Set<Vehicle> vehicles = new HashSet<>();
 	
 	// assigned vehicles
 	@OneToMany(mappedBy = "assignedEmployee", fetch = FetchType.EAGER, targetEntity=Vehicle.class)
-	private Set<Vehicle> assignedConsignments = new HashSet<>();
+	private Set<Vehicle> assignedVehicles = new HashSet<>();
 		
 	public void addRole(Role role) {
 		roles.add(role);
@@ -124,20 +124,18 @@ public class Customer {
 		roles.remove(role);
 	}
 	
-	public void addConsignment(Vehicle vehicle) {
-		consignments.add(vehicle);
+
+	
+	public void removeVehicle(Vehicle vehicle) {
+		vehicle.remove(vehicle);
 	}
 	
-	public void removeConsignment(Vehicle vehicle) {
-		consignments.remove(vehicle);
+	public void assignVehicle(Vehicle vehicle) {
+		vehicle.add(vehicle);
 	}
 	
-	public void assignConsignment(Vehicle vehicle) {
-		assignedConsignments.add(vehicle);
-	}
-	
-	public void unassignConsignment(Vehicle vehicle) {
-		assignedConsignments.remove(vehicle);
+	public void unassignVehicle(Vehicle vehicle) {
+		vehicle.remove(vehicle);
 	}
 	
 	public Customer() {
@@ -150,11 +148,6 @@ public class Customer {
 		this.email = email;
 		this.password = password;
 		this.confirmPassword = confirmPassword;
-	}
-
-	public Set<Vehicle> getVehicles() {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 	public boolean isReceived() {

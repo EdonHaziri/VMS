@@ -8,6 +8,9 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
@@ -25,6 +28,17 @@ public class Employee {
 	    private String EmployeeType;
 	    
 	    
+	    @Id
+	    @Column(name = "emailId", nullable = false)
+	    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+	    public String getId() {
+	        return emailId;
+	    }
+
+		public void setEmailId(String emailId) {
+			this.emailId = emailId;
+		}
+		
 		@Basic
 	    @Column(name = "firstName", nullable = true, length = 255)
 		public String getFirstName() {
@@ -52,14 +66,7 @@ public class Employee {
 			this.contactNumber = contactNumber;
 		}
 		
-		@Basic
-	    @Column(name = "emailId", nullable = true, length = 255)
-		public String getEmailId() {
-			return emailId;
-		}
-		public void setEmailId(String emailId) {
-			this.emailId = emailId;
-		}
+		
 		
 		@Basic
 	    @Column(name = "password", nullable = true, length = 255)
