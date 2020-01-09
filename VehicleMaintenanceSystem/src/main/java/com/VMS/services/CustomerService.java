@@ -37,4 +37,9 @@ public class CustomerService {
 		return false;
 	}
 
+	public boolean isValid(String firstName, String lastName, String email) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 }

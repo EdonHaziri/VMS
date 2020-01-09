@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.VMS.model.Customer;
+import com.VMS.model.Employee;
 import com.VMS.services.CustomerService;
 import com.VMS.services.EmployeeService;
 
@@ -18,7 +19,7 @@ public class EmployeeConfig {
 		EmployeeService employeeService;
 		
 		@GetMapping("/")
-		public List<Customer> getAllCustomers(){
+		public List<Employee> getAllEmployees(){
 			return EmployeeService.getAllEmployee();
 		}
 	}

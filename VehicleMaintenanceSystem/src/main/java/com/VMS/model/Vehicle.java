@@ -1,10 +1,18 @@
 package com.VMS.model;
 
 import com.VMS.interfaces.*;
-
+import com.VMS.model.Vehicle;
 
 import javax.persistence.*;
+
+import java.util.HashSet;
+import java.util.List;
 import java.util.Objects;
+import java.util.Set;
+
+import lombok.Getter;
+import lombok.Setter;
+
 
 @Entity
 @Table(name = "vehicle")
@@ -213,5 +221,40 @@ public class Vehicle implements HasLocationId, Deletable {
 		// TODO Auto-generated method stub
 		
 	}
+
+	public void setAssignedCustomer(Object object) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setAssignedUserName(Object object) {
+		// TODO Auto-generated method stub
+		
+	}
+	public Set<Vehicle> getAssignedVehicle() {
+		return getAssignedVehicle();
+	}
+
+	public void setAssignedVehicle(Set<AssignVehicle> assignedVehicle) {
+		this.assignedVehicles = assignedVehicle;
+	}
+		
+		public void unassignVehicle(Vehicle vehicle) {
+			// TODO Auto-generated method stub
+			
+		}
+		
+		// owned vehicles
+		@Column(name = "vehicle")
+		@OneToMany(fetch = FetchType.EAGER, cascade=CascadeType.ALL, targetEntity=Vehicle.class)
+		@Getter @Setter
+		private Set<Vehicle> vehicles = new HashSet<>();
+		
+		// assigned vehicles
+		@Column(name = "assignedVehicle")
+		@OneToMany(fetch = FetchType.EAGER, cascade=CascadeType.ALL, targetEntity=Vehicle.class)
+		@Getter @Setter
+		private Set<AssignVehicle> assignedVehicles = new HashSet<>();
+		
 
 }

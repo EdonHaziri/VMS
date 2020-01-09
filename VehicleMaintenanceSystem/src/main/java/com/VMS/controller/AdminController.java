@@ -10,10 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.VMS.model.Employee;
-import com.VMS.services.AdminService;
 import com.VMS.model.*;
-
+import com.VMS.services.AdminService;
 
 
 @RestController
@@ -24,13 +22,13 @@ public class AdminController {
 	
 	@RequestMapping(value = "admin/employees/all", method = RequestMethod.GET, produces = "application/json")
 	public ResponseEntity<?> loadAllEmployees() {
-		List<Employee> employees = adminService.loadAllEmployees();
+		List<Customer> employees = adminService.loadAllCustomers();
 		return ResponseEntity.ok(employees);
 	}
 	
 	@RequestMapping(value = "admin/add", method = RequestMethod.POST, produces = "application/json")
 	public ResponseEntity<?> adminAddUser(@RequestBody AdminAddUserRequest Employee) {
-		Employee newEmployee = adminService.adminAddUser(Employee);
+		Customer newEmployee = adminService.adminAddUser(Employee);
 		if (newEmployee != null) {
 			return ResponseEntity.ok(newEmployee);
 		}
@@ -38,8 +36,8 @@ public class AdminController {
 	}
 	
 	@RequestMapping(value = "admin/add", method = RequestMethod.POST, produces = "application/json")
-	public ResponseEntity<?> adminAssignEmployee(@RequestBody AssignConsignment payload) {
-		Employee res = adminService.assignConsignment(payload);
+	public ResponseEntity<?> adminAssignEmployee(@RequestBody AssignVehicle payload) {
+		Vehicle res = adminService.assignVehicle(payload);
 		if (res != null) {
 			return ResponseEntity.ok(res);
 		}
@@ -47,8 +45,8 @@ public class AdminController {
 	}
 	
 	@RequestMapping(value = "admin/remove", method = RequestMethod.POST, produces = "application/json")
-	public ResponseEntity<?> adminUnassignEmployee(@RequestBody AssignConsignment payload) {
-		Employee res = adminService.unassignConsignment(payload);
+	public ResponseEntity<?> adminUnassignEmployee(@RequestBody AssignVehicle payload) {
+		Vehicle res = adminService.unassignVehicle(payload);
 		if (res != null) {
 			return ResponseEntity.ok(res);
 		}

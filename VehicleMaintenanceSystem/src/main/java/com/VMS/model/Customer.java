@@ -93,28 +93,19 @@ public class Customer {
 		this.vehicles = vehicles;
 	}
 
-	public Set<Vehicle> getAssignedVehicles() {
-		return assignedVehicles;
-	}
-
-	public void setAssignedConsignments(Set<Vehicle> assignedVehicles) {
-		this.assignedVehicles = assignedVehicles;
-	}
+	
 
 	@ManyToMany(targetEntity=Role.class, cascade=CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinTable(name="Customer_Role", 
-		joinColumns= {@JoinColumn(name="email")}, 
+		joinColumns= {@JoinColumn(referencedColumnName="email")}, 
 		inverseJoinColumns={@JoinColumn(name="role")}
-	)
+	) 
 	private Set<Role> roles = new HashSet<>();
 	
 	// owned vehicles
 	@OneToMany(mappedBy = "customer", fetch = FetchType.EAGER, cascade=CascadeType.ALL, targetEntity=Vehicle.class)
 	private Set<Vehicle> vehicles = new HashSet<>();
 	
-	// assigned vehicles
-	@OneToMany(mappedBy = "assignedEmployee", fetch = FetchType.EAGER, targetEntity=Vehicle.class)
-	private Set<Vehicle> assignedVehicles = new HashSet<>();
 		
 	public void addRole(Role role) {
 		roles.add(role);

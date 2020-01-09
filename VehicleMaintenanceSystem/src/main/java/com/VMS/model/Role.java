@@ -19,13 +19,13 @@ public class Role {
 	private String role;
 	
 	@ManyToMany(mappedBy = "roles", fetch = FetchType.EAGER)
-	private Set<Employee> users = new HashSet<>();
+	private Set<Customer> users = new HashSet<>();
 	
 	public Role() {}
 	
-	public Role(String role, Employee employee) {
+	public Role(String role, Customer newUser) {
 		this.role = role;
-		this.users.add(employee);
+		this.users.add(newUser);
 	}
 
 	public String getRole() {
@@ -36,7 +36,7 @@ public class Role {
 		this.role = role;
 	}
 
-	public void setUsers(Set<Employee> users) {
+	public void setUsers(Set<Customer> users) {
 		this.users = users;
 	}
 }

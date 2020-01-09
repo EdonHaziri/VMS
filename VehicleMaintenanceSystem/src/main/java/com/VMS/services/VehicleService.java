@@ -98,4 +98,9 @@ public class VehicleService {
 		return new Vehicle(foundCustomer, foundVehicle);
 		
 	}
+
+	public Vehicle deliverVehicle(Customer customer, Vehicle vehicle) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
