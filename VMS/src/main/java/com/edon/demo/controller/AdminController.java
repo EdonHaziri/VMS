@@ -1,4 +1,6 @@
 package com.edon.demo.controller;
+// add error checking for existing admin
+
 
 import java.util.List;
 
@@ -11,11 +13,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.edon.demo.model.AdminAddServiceCenter;
 import com.edon.demo.model.AdminAddUserRequest;
 import com.edon.demo.model.AssignVehicle;
+import com.edon.demo.model.AuthResponse;
+import com.edon.demo.model.ServiceCenter;
 import com.edon.demo.model.User;
 import com.edon.demo.model.UserVehicle;
 import com.edon.demo.services.AdminService;
+import com.edon.demo.services.AuthService;
 
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
@@ -38,6 +44,16 @@ public class AdminController {
 		}
 		return ResponseEntity.status(HttpStatus.NOT_FOUND).body(newUser);
 	}
+	
+	@RequestMapping(value = "admin/addServiceCenter", method = RequestMethod.POST, produces = "application/json")
+	public ResponseEntity<?> adminAddServiceCenter(@RequestBody AdminAddServiceCenter serviceCenter) {
+		ServiceCenter newServiceCenter = adminService.AdminAddServiceCenter(serviceCenter);
+		if (newServiceCenter != null) {
+			return ResponseEntity.ok(newServiceCenter);
+		}
+		return ResponseEntity.status(HttpStatus.NOT_FOUND).body(newServiceCenter);
+	}
+	
 	
 	@RequestMapping(value = "admin/assign", method = RequestMethod.POST, produces = "application/json")
 	public ResponseEntity<?> adminAssignEmployee(@RequestBody AssignVehicle payload) {

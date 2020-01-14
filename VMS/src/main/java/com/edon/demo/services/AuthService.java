@@ -155,7 +155,7 @@ public class AuthService {
 		authRes.setSuccessMsg("Your account has been created! You can login now");
 		
 		// send email to new user
-		MailRequest mailReq = new MailRequest("", newUser.getEmail(), "vtt311096@gmail.com", "Welcome to Cogent Fedex");
+		MailRequest mailReq = new MailRequest("", newUser.getEmail(), "edonhaziri2013@gmail.com", "Welcome to VMS");
 		Map<String, Object> model = new HashMap<>();
 		model.put("name", newUser.getFirstName());
 		emailService.sendEmail(mailReq, model);

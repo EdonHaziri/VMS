@@ -8,13 +8,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import com.edon.demo.model.AdminAddServiceCenter;
 import com.edon.demo.model.AdminAddUserRequest;
 import com.edon.demo.model.AssignVehicle;
 import com.edon.demo.model.Vehicle;
 import com.edon.demo.model.Role;
+import com.edon.demo.model.ServiceCenter;
 import com.edon.demo.model.User;
 import com.edon.demo.model.UserVehicle;
+
 import com.edon.demo.repository.VehicleRepository;
+import com.edon.demo.repository.ServiceCenterRepository;
 import com.edon.demo.repository.UserRepository;
 
 @Service
@@ -45,6 +49,12 @@ public class AdminService {
 		newUser.addRole(new Role(user.getRole(), newUser));
 		userRepository.save(newUser);
 		return newUser;
+	}
+	
+	public ServiceCenter AdminAddServiceCenter(AdminAddServiceCenter serviceCenter) {
+		ServiceCenter newServiceCenter = new ServiceCenter(serviceCenter.getBrand());
+	
+		return newServiceCenter;
 	}
 	
 	public String generateBcryptPassword() {
