@@ -8,7 +8,7 @@ import { HttpService } from './http.service';
   providedIn: 'root'
 })
 export class UserService {
-  serverAPI_URL = `http://localhost:8085`;
+  serverAPI_URL = `http://localhost:8080`;
 
   constructor(
     private http: HttpClient,

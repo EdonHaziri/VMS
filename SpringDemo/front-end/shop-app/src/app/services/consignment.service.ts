@@ -9,7 +9,7 @@ import { User } from '../models/User.model';
   providedIn: 'root'
 })
 export class ConsignmentService {
-  serverAPI_URL = `http://localhost:8085`;
+  serverAPI_URL = `http://localhost:8080`;
 
   constructor(
     private http: HttpClient,

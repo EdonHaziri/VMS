@@ -8,5 +8,4 @@ import com.edon.demo.model.ServiceCenter;
 @Repository
 public interface ServiceCenterRepository extends CrudRepository<ServiceCenter, String> {
 	ServiceCenter findByBrand(String brand);
-	ServiceCenter f = new ServiceCenter();
 }
