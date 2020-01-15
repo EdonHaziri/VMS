@@ -31,6 +31,9 @@ public class AdminService {
 	private VehicleRepository vehicleRepository;
 	
 	@Autowired
+	private ServiceCenterRepository serviceCenterRepository;
+	
+	@Autowired
 	private UserService userService;
 	
 	public User adminAddUser(AdminAddUserRequest user) {
@@ -53,7 +56,7 @@ public class AdminService {
 	
 	public ServiceCenter AdminAddServiceCenter(AdminAddServiceCenter serviceCenter) {
 		ServiceCenter newServiceCenter = new ServiceCenter(serviceCenter.getBrand());
-
+		serviceCenterRepository.save(newServiceCenter);
 		return newServiceCenter;
 	}
 	
