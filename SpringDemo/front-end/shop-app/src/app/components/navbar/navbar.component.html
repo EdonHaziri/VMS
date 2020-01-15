@@ -2,7 +2,7 @@
   <a class="navbar-brand" *ngIf="currentUser"
      [routerLink]="['/dashboard', currentUser.firstName + currentUser.lastName]">
     <img [src]="'assets/img/logo_transparent.png'" alt='logo' id='logo' class='mr-3 ml-3'>
-    Cogent Fedex
+    Vehicle Maintenance System
   </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
           aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
@@ -24,7 +24,7 @@
         <a class="nav-link" routerLink="/consignments">
           <div class="d-flex align-items-center">
             <i class="fas fa-box">&nbsp;&nbsp;</i>
-            <span>&nbsp;</span>Consignments
+            <span>&nbsp;</span>Vehicles
           </div>
         </a>
       </li>

@@ -57,6 +57,7 @@ public class AdminService {
 	public ServiceCenter AdminAddServiceCenter(AdminAddServiceCenter serviceCenter) {
 		ServiceCenter newServiceCenter = new ServiceCenter(serviceCenter.getBrand());
 		serviceCenterRepository.save(newServiceCenter);
+		System.out.println(serviceCenterRepository.findByBrand(serviceCenter.getBrand()));
 		return newServiceCenter;
 	}
 	

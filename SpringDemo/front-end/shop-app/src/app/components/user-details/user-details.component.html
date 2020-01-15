@@ -37,7 +37,7 @@
       <br>
       <!-- List of consignments -->
       <!-- Pending consignments -->
-      <h4 class="text-muted">Pending consignments:</h4>
+      <h4 class="text-muted">Pending Vehicles:</h4>
       <p *ngIf="format_consignments.notReceived.length === 0">
         Currently none...
       </p>
@@ -47,7 +47,7 @@
           <div class="card-header">
             <span class="font-weight-bold">
               <i class="fas fa-paper-plane">&nbsp;&nbsp;</i>
-              Consignment ID: {{ sending.id }}
+              Vehicle ID: {{ sending.id }}
             </span>
           </div>
 
@@ -79,7 +79,7 @@
       <br>
 
       <!-- Received consignments -->
-      <h4 class="text-muted">Received consignments:</h4>
+      <h4 class="text-muted">Received vehicles:</h4>
       <p *ngIf="format_consignments.received.length === 0">
         Currently none...
       </p>
@@ -89,7 +89,7 @@
           <div class="card-header">
             <span class="font-weight-bold">
               <i class="fas fa-check-circle">&nbsp;&nbsp;</i>
-              Consignment ID: {{ received.id }}
+              Vehicle ID: {{ received.id }}
             </span>
           </div>
 
@@ -114,8 +114,8 @@
       </div>
       <br>
 
-      <!-- Assigned consignments -->
-      <h4 class="text-muted">Assigned consignments:</h4>
+      <!-- Assigned vehicless -->
+      <h4 class="text-muted">Assigned Vehicles:</h4>
       <p *ngIf="format_consignments.assignedConsignments.length === 0">
         Currently none...
       </p>
@@ -125,7 +125,7 @@
           <div class="card-header">
             <span class="font-weight-bold">
               <i class="fas fa-truck">&nbsp;&nbsp;</i>
-              Consignment ID: {{ assigned.id }}
+              Vehicle ID: {{ assigned.id }}
             </span>
           </div>
 

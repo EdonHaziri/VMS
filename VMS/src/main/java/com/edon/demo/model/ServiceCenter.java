@@ -19,8 +19,7 @@ import lombok.Setter;
 public class ServiceCenter {
 	
 	@Id
-	@Column(name = "brand")
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "brand", columnDefinition = "varchar(255) default 'BMW'")
 	@Getter @Setter
 	private String brand;
 	
