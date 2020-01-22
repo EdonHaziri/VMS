@@ -69,16 +69,8 @@ public class VehicleService {
 	// CRUDs
 	public boolean addVehicle(User user, Vehicle vehicle) {
 		boolean isDescriptionFilled = !vehicle.getDescription().equals("");
-		boolean isStreetFilled = !vehicle.getStreet().equals("");
-		boolean isCityFilled = !vehicle.getCity().equals("");
-		boolean isStateFilled = !vehicle.getState().equals("");
-		boolean isZipcodeFilled = vehicle.getZipcode() != 0;
-		boolean isCountryFilled = !vehicle.getCountry().equals("");
-		boolean isPriceFilled = vehicle.getPrice() != 0;
-		boolean isCurrencyFilled = !vehicle.getCurrency().equals("");
-		
-		if (isDescriptionFilled && isStreetFilled && isCityFilled && isStateFilled 
-				&& isZipcodeFilled && isCountryFilled && isPriceFilled && isCurrencyFilled) {
+
+		if (isDescriptionFilled) {
 			
 			vehicle.setUser(user);
 			vehicle.setReceived(false);

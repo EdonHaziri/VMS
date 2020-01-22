@@ -4,6 +4,7 @@ import * as rootReducers from '../../reducers/index';
 import * as AdminActions from '../../actions/admin.action';
 import { User } from 'src/app/models/User.model';
 import { Consignment } from 'src/app/models/Consignment.model';
+import { Vehicle} from 'src/app/models/Vehicle.model';
 
 @Component({
   selector: 'app-employees-list',
@@ -15,6 +16,7 @@ export class EmployeesListComponent implements OnInit {
   @Input() target_user: User;
   @Input() target_user_roles: Set<string>;
   @Input() assigned_consignment: Consignment;
+  @Input() assigned_vehicle: Vehicle;
   assigned_employee_email: string;
 
   constructor(

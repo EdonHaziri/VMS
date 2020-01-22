@@ -2,6 +2,9 @@ package com.edon.demo.controller;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,6 +24,9 @@ public class UserController {
 	
 	@Autowired
 	private UserService userService;
+	
+	//log4j instantiation
+	private static final Logger logger = LogManager.getLogger(UserController.class);
 	
 	@RequestMapping(value = "/users/all", method = RequestMethod.GET, produces = "application/json")
 	public List<User> getUsers() {
@@ -52,6 +58,7 @@ public class UserController {
 	
 	@RequestMapping(value = "/users/delete", method = RequestMethod.POST, produces = "application/json")
 	public ResponseEntity<?> deleteUser(@RequestBody Map<String, String> userInfo) {
+		logger.debug("delete user with email: " + userInfo.get("email"));
 		boolean valid = userService.deleteUser(userInfo.get("email"));
 		if (valid) {
 			return ResponseEntity.ok(valid);

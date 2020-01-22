@@ -9,7 +9,7 @@ import { Consignment } from '../models/Consignment.model';
   providedIn: 'root'
 })
 export class AdminService {
-  serverAPI_URL = `http://localhost:8085`;
+  serverAPI_URL = `http://localhost:8080`;
 
   constructor(
     private http: HttpClient,

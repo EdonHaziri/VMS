@@ -29,5 +29,10 @@ public class ServiceCenter {
 		super();
 		this.brand = brand;
 	}
+
+	public ServiceCenter get() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 }

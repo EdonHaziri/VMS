@@ -8,6 +8,7 @@ import { AlreadyAuthService } from './services/already-auth.service';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ConsignmentsComponent } from './components/consignments/consignments.component';
 import { UserDetailsComponent } from './components/user-details/user-details.component';
+import { ContactComponent } from './components/contact/contact.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent, canActivate: [AlreadyAuthService] },
@@ -17,6 +18,7 @@ const routes: Routes = [
   { path: 'dashboard/:fullName', component: DashboardComponent, canActivate: [AuthGuardService] },
   { path: 'consignments', component: ConsignmentsComponent, canActivate: [AuthGuardService] },
   { path: 'user/details', component: UserDetailsComponent, canActivate: [AuthGuardService] },
+  { path: 'contact', component: ContactComponent, canActivate: [AuthGuardService] },
 ];
 
 @NgModule({

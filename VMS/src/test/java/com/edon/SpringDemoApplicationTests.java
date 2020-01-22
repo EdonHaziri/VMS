@@ -35,28 +35,13 @@ class SpringDemoApplicationTests {
 		when(repository.findAll()).thenReturn(Stream.of(new User("Eh", "A", "email@hotmail.com", "pass", "pass")).collect(Collectors.toList()));
 		assertEquals(1, service.getUsers().size());
 	}
-	
-	/*
-	 * @Test public void getUserbyEmailAddressTest() { String email =
-	 * "eh@hotmail.com"; when(repository.findByEmail(email)).thenReturn((User)
-	 * Stream.of(new User("e", "h", "eh@hotmail.com", "pass",
-	 * "pass")).collect(Collectors.toList())); assertEquals(1,
-	 * service.getUser(email).getEmail()); }
-	 */
-	
-	@Test
-	public void saveUserTest() {
-		User user = new User("e", "h", "eh@hotmail.com","pass", "pass");
-		when(repository.save(user)).thenReturn(user);
-		assertEquals(user, service.addUser(user));
-	}
 
-	@Test
-	public void deleteUserTest() {
-		User user = new User("aee", "hd", "ehaziri@hotmail.com", "pass", "pass");
-		repository.deleteById(user.getEmail());
-		verify(repository, times(1)).delete(user);
-	}
+	/*
+	 * @Test public void deleteUserTest() { User user = new User("aee", "hd",
+	 * "ehaziri@hotmail.com", "pass", "pass");
+	 * repository.deleteById(user.getEmail()); verify(repository,
+	 * times(1)).delete(user); }
+	 */
 }
 
 

@@ -16,7 +16,7 @@ export class AuthService {
   ) { }
 
   isAuthenticated = (): Boolean => {
-    console.log('CHecking authentication...');
+    console.log('Checking authentication...');
     const jwtToken = localStorage.getItem('jwtToken');
     if (jwtToken === null || typeof jwtToken === 'undefined') {
       return false;

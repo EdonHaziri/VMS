@@ -1,0 +1,26 @@
+<iframe
+  width="600"
+  height="450"
+  frameborder="0" style="border:0"
+  src="https://www.google.com/maps/embed/v1/place?key=AIzaSyC0kJv101wNdGyN8jAVf8AXYvInhYs-31U
+    &q=Space+Needle,Seattle+WA" allowfullscreen>
+</iframe>
+
+<iframe width="600" height="450" frameborder="0" style="border:0"
+src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJNfQ56DtWNIgRU1wweJX_PAs&key=..." allowfullscreen></iframe>
+
+https://www.google.com/maps/embed/v1/MODE?key=YOUR_API_KEY&parameters
+
+<iframe
+  width="600"
+  height="450"
+  frameborder="0" style="border:0"
+  src="api.openweathermap.org/data/2.5/forecast?id=524901&APPID=6d177978521ab5e290085c6e5fee227c" allowfullscreen>
+</iframe>
+
+<iframe
+  width="450"
+  height="250"
+  frameborder="0" style="border:0"
+  src="https://www.google.com/maps/embed/v1/search?key=AIzaSyBJyFqdqrUw1_Fvso8Sgta_XojbeRtnWz0&q=record+stores+in+Seattle" allowfullscreen>
+</iframe>

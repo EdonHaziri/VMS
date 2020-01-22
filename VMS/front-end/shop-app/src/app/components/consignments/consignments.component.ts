@@ -52,10 +52,10 @@ export class ConsignmentsComponent implements OnInit {
     })
   }
 
-  onAdd(consignment: any) {
+  onAdd(vehicle: any) {
     const payload = {
       user: this.current_user,
-      consignment: consignment
+      vehicle: vehicle
     }
     this.store.dispatch(ConsignmentActions.ADD_CONSIGNMENT({ payload: payload }));
   }

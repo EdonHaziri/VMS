@@ -25,7 +25,7 @@ import { AddConsignmentComponent } from './components/add-consignment/add-consig
 import { UserDetailsComponent } from './components/user-details/user-details.component';
 import { EmployeesListComponent } from './components/employees-list/employees-list.component';
 import { AdminAddUserComponent } from './components/admin-add-user/admin-add-user.component';
-
+import { ContactComponent } from './components/contact/contact.component';
 @NgModule({
 	declarations: [
 		AppComponent,
@@ -39,7 +39,8 @@ import { AdminAddUserComponent } from './components/admin-add-user/admin-add-use
 		AddConsignmentComponent,
 		UserDetailsComponent,
 		EmployeesListComponent,
-		AdminAddUserComponent
+		AdminAddUserComponent,
+		ContactComponent
 	],
 	imports: [
 		BrowserModule,

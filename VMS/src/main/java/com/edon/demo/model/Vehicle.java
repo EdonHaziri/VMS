@@ -27,34 +27,6 @@ public class Vehicle {
 	@Getter @Setter
 	private String description;
 	
-	@Column(name = "street")
-	@Getter @Setter
-	private String street;
-	
-	@Column(name = "city")
-	@Getter @Setter
-	private String city;
-	
-	@Column(name = "state")
-	@Getter @Setter
-	private String state;
-	
-	@Column(name = "zipcode")
-	@Getter @Setter
-	private int zipcode;
-	
-	@Column(name = "country")
-	@Getter @Setter
-	private String country;
-	
-	@Column(name="price")
-	@Getter @Setter
-	private double price;
-	
-	@Column(name="currency")
-	@Getter @Setter
-	private String currency;
-	
 	@ManyToOne(fetch = FetchType.EAGER, targetEntity=User.class)
 	@JoinColumn(name="owner_email", nullable=false)
 	@Setter
@@ -86,13 +58,6 @@ public class Vehicle {
 			String country, double price, String currency) {
 		super();
 		this.description = description;
-		this.street = street;
-		this.city = city;
-		this.state = state;
-		this.zipcode = zipcode;
-		this.country = country;
-		this.price = price;
-		this.currency = currency;
 	}	
 	
 }

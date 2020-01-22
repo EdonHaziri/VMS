@@ -9,5 +9,7 @@ import com.edon.demo.model.User;
 
 @Repository
 public interface ServiceCenterRepository extends CrudRepository<ServiceCenter, String> {
-	ServiceCenter findByBrand(String brand);
+	ServiceCenter findByBrand(String string);
+
+	ServiceCenter deleteByBrand(Integer prdId);
 }
