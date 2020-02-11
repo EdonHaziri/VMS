@@ -25,6 +25,7 @@ public class UserController {
 	@Autowired
 	private UserService userService;
 	
+	
 	//log4j instantiation
 	private static final Logger logger = LogManager.getLogger(UserController.class);
 	

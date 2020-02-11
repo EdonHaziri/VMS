@@ -56,7 +56,7 @@ export class EmployeesListComponent implements OnInit {
       this.store.dispatch(AdminActions.ADMIN_ASSIGN_EMPLOYEE({
         payload: {
           employeeEmail: this.assigned_employee_email,
-          assigned_consignment: this.assigned_consignment,
+          assigned_vehicle: this.assigned_vehicle,
           owner_name: this.target_user.firstName + ' ' + this.target_user.lastName,
           owner_email: this.target_user.email
         }

@@ -5,6 +5,8 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,6 +25,9 @@ public class IndexController {
 	@Autowired
 	public AuthService authService;
 	
+	@Autowired
+	private JavaMailSender sender;
+	
 	@RequestMapping(value = "/hello", method = RequestMethod.GET)
 	public ResponseEntity<?> hello() {
 		Map<String, String> map = new HashMap<>();
@@ -39,12 +44,19 @@ public class IndexController {
 		return ResponseEntity.status(HttpStatus.NOT_FOUND).body(authRes);
 	}
 	
+	
 	@RequestMapping(value = "/register", method = RequestMethod.POST, produces = "application/json")
 	public ResponseEntity<?> register(@RequestBody User newUser) {
+		SimpleMailMessage msg = new SimpleMailMessage();
+		msg.setFrom(newUser.getEmail());
+		msg.setSubject("Email from VMS");
+		msg.setText("You have been successfully registered" + newUser.getEmail());
+		sender.send(msg);
 		AuthResponse authRes = authService.register(newUser);
 		if (authRes.isValid()) {
 			return ResponseEntity.ok(authRes);
 		}
 		return ResponseEntity.status(HttpStatus.NOT_FOUND).body(authRes);
+	
 	}
 }

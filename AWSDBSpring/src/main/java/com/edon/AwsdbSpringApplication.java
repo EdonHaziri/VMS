@@ -8,6 +8,8 @@ public class AwsdbSpringApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(AwsdbSpringApplication.class, args);
+		//test
+		//version 2
 	}
 
 }
