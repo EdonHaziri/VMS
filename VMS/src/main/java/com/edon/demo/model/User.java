@@ -43,7 +43,7 @@ public class User {
 	@Getter @Setter
 	private String confirmPassword;
 	
-	@ManyToMany(targetEntity=Role.class, cascade=CascadeType.ALL, fetch = FetchType.EAGER)
+	@ManyToMany(targetEntity=Role.class, cascade=CascadeType.ALL, fetch = FetchType.LAZY)
 	@JoinTable(name="User_Role", 
 		joinColumns= {@JoinColumn(name="email")}, 
 		inverseJoinColumns={@JoinColumn(name="role")}
@@ -52,12 +52,12 @@ public class User {
 	private Set<Role> roles = new HashSet<>();
 	
 	// owned vehicles
-	@OneToMany(mappedBy = "user", fetch = FetchType.EAGER, cascade=CascadeType.ALL, targetEntity=Vehicle.class)
+	@OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade=CascadeType.ALL, targetEntity=Vehicle.class)
 	@Getter @Setter
 	private Set<Vehicle> vehicles = new HashSet<>();
 	
 	// assigned vehicles
-	@OneToMany(mappedBy = "assignedEmployee", fetch = FetchType.EAGER, targetEntity=Vehicle.class)
+	@OneToMany(mappedBy = "assignedEmployee", fetch = FetchType.LAZY, targetEntity=Vehicle.class)
 	@Getter @Setter
 	private Set<Vehicle> assignedVehicles = new HashSet<>();
 		

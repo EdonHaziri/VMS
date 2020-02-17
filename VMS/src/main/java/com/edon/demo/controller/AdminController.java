@@ -70,6 +70,7 @@ public class AdminController {
 		if (res != null) {
 			return ResponseEntity.ok(res);
 		}
-		return ResponseEntity.status(HttpStatus.NOT_FOUND).body(res);
+		//return ResponseEntity.status(HttpStatus.NOT_FOUND).body(res);
+		return ResponseEntity.status(422).body(res);//200
 	}
 }
