@@ -27,12 +27,12 @@ class SpringDemoApplicationTests {
 	@MockBean
 	private UserRepository repository;
 	
-	@Test
-	void contextLoads() {
-		when(repository.findAll()).thenReturn(Stream.of(new User("Eh", "A", "email@hotmail.com", "pass", "pass")).collect(Collectors.toList()));
-		assertEquals(1, service.getUsers().size());
-	}
-
+	/*
+	 * @Test void contextLoads() {
+	 * when(repository.findAll()).thenReturn(Stream.of(new User("Eh", "A",
+	 * "email@hotmail.com", "pass", "pass")).collect(Collectors.toList()));
+	 * assertEquals(1, service.getUsers().size()); }
+	 */
 }
 
 
